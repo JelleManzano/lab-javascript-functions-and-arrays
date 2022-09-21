@@ -1,41 +1,129 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else if (num2 > num1) {
+    return num2;
+  } else if (num1 === num2){
+    return num1||num2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null
+  }  else if (words.length === 1) {
+    return words[0]
+  } else {
+    let longestWord ="";
+  for (let i = 0; i < words.length; i++){
+    if(longestWord.length < words[i].length) {
+      longestWord = words[i];
+    } 
+  }
+  return longestWord
+  }
+  }
+  
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(numbers) {
+  if (numbers.length === 0) {
+    return 0
+  } 
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i]
+  }
+  return sum;
+}
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
-
+function sum(items) {
+  if(items.length === 0){
+    return 0;
+  }  
+let sum = 0;
+for (let i = 0; i < items.length;i++) {
+  if (typeof items[i] === "number") {
+    sum += items[i];
+  } else if (typeof items[i] === "string"){
+    sum += items[i].length
+  } else if (typeof items[i] === "boolean") {
+    if (items[i]) {
+      sum += 1;
+    } else {
+      sum+= 0;
+    }
+  } else{
+    return Error ("This type of data is not supported! 😡 ")
+  }
+}
+return sum;
+}
+ 
+//lo he intentado pero no consigo que encontrar la manera de que funcione el error
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+if (numbersAvg.length !== 0) {
+  let sum = 0;
+  for (let i = 0; i < numbersAvg.length; i++) {
+    sum += numbersAvg[i]
+  }
+  return sum / numbersAvg.length
+} else {
+  return null;
+}
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length !== 0) {
+    let sum = 0;
+    for (let i = 0; i < wordsArr.length; i++){
+      sum += wordsArr[i].length
+    }
+    return sum / wordsArr.length
+  } else {
+    return null;
+  }
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(wordsArr) {
+  if (wordsArr.length !==0) {
+    let sum = 0;
+    for (let i = 0; i < wordsArr.length;i++) {
+      if (typeof wordsArr[i] === "string") {
+        sum += wordsArr[i].length
+      } else if(typeof wordsArr[i] === "number") {
+        sum += wordsArr[i]
+      } else if (typeof wordsArr[i] === "boolean") {
+        sum += wordsArr[i]
+      } 
+      } return sum / wordsArr.length
+    } else {
+      return null;
+    }
+  }
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +140,35 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+ let nonRepeat = [];
+if (wordsUnique.length !== 0) {
+  for (let uniqueWord in wordsUnique) {
+    if (!nonRepeat.includes(wordsUnique[uniqueWord])) {
+      nonRepeat.push(wordsUnique[uniqueWord]);
+    } else {
+      continue;
+    }
+  }
+} else {
+  return null;
+}
+return nonRepeat
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordFind, string) {
+
+  if (wordFind.length !== 0) {
+    return wordFind.includes(string)
+  } else {
+    return null
+  }
+}
 
 
 
@@ -78,7 +187,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, singleWord) {
+ 
+  let wordCounter=0;
+  for (let repeated of wordsCount) {
+    if (repeated === singleWord) {
+      wordCounter++;
+    }
+  }
+  return wordCounter;
+}
 
 
 
